@@ -11,6 +11,8 @@ const PATHS = {
   build: path.join(__dirname, 'build')
 };
 
+process.env.BABEL_ENV = TARGET;
+
 const common = {
   // Entry accepts a path or an object of entries.
   entry: {
@@ -19,6 +21,9 @@ const common = {
   output: {
     path: PATHS.build,
     filename: 'bundle.js'
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
   },
   module: {
     preLoaders: [
@@ -36,8 +41,13 @@ const common = {
     loaders: [
       {
         // Test expects RegEx
-        test: /\.css$/,
-        loaders: ['style', 'css'],
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass'],
+        include: PATHS.app
+      },
+      {
+        test: /\.jsx?$/,
+        loaders: ['babel?cacheDirectory'],
         include: PATHS.app
       }
     ]
@@ -50,7 +60,7 @@ const common = {
 // Default Configuration
 if(TARGET === 'start' || !TARGET) {
   module.exports = merge(common, {
-    devtool: 'eval-cource-map',
+    devtool: 'eval-source-map',
     devServer: {
       contentBase: PATHS.build,
       historyApiFallback: true,
