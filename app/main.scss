@@ -1,7 +1,19 @@
+* {
+  box-sizing: border-box; 
+}
+
 body {
   background-color: #efefef;
+  color: #333;
+  font-family: 'Helvetica Neue';
   
-  > * {
-    color: red;
+  a {
+    color: lighten(#333, 30%);
+    text-decoration: none;
   }
+  
+  li {
+    list-style: none;
+  }
+  
 }
