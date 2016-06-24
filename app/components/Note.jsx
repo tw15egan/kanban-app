@@ -8,6 +8,7 @@ export default class Note extends React.Component {
       editing: false
     };
   }
+  
   render() {
     if(this.state.editing) {
       return this.renderEdit();
@@ -15,6 +16,7 @@ export default class Note extends React.Component {
     
     return this.renderNote();
   }
+  
   renderEdit = () => {
     return <input type="text" 
       ref={
@@ -26,22 +28,37 @@ export default class Note extends React.Component {
       onKeyPress={this.checkEnter} />
 
   };
+  
   renderNote = () => {
     // If the user clicks a normal note, trigger editing logic
-    return <div onClick={this.edit}>{this.props.task}</div>;
+    const onDelete= this.props.onDelete;
+    
+    return (
+      <div onClick={this.edit}>
+        <span className="note__text">{this.props.task}</span>
+        {onDelete ? this.renderDelete() : null }
+      </div>
+    ) 
   };
+  
+  renderDelete = () => {
+    return <button className="note__delete" onClick={this.props.onDelete}>x</button>
+  };
+  
   edit = () => {
     // Enter edit mode
     this.setState({
       editing: true
     });
   };
+  
   checkEnter = (e) => {
     // The user hit "enter"
     if(e.key === 'Enter') {
       this.finishEdit(e)
     }
   };
+  
   finishEdit = (e) => {
     const value = e.target.value;
     

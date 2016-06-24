@@ -1,9 +1,13 @@
 * {
   box-sizing: border-box; 
+  transition: .3s;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background-color: #efefef;
+  padding: 5%;
+  background-color: #fff;
   color: #333;
   font-family: 'Helvetica Neue';
   
@@ -16,4 +20,63 @@ body {
     list-style: none;
   }
   
+}
+
+.note {
+  width: 100%;
+  background-color: #eeeded;
+  padding: 1rem 2rem;
+
+  &__list {
+    margin-top: .5rem;
+  }
+  
+  &__item {
+    background-color: #fefefe;
+    
+    &:nth-child(even) {
+      background-color: #f7f7f7;
+    }
+    
+    &:first-child {
+      border-top: 0;
+    }
+    
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  
+  &__text {
+    padding-left: 2rem;
+    flex: 8;
+  }
+  
+  &__add {
+    cursor: pointer;
+    padding: .5rem 1rem;
+    font-size: 1.5rem;
+    font-weight: 100;
+    background-color: #01C7D2;
+    color: #fff;
+    border: 0;
+    flex: 2;
+  }
+  
+  &__delete {
+    cursor: pointer;
+    padding: .5rem 1rem;
+    font-size: 1.5rem;
+    font-weight: 100;
+    background-color: #aaa;
+    color: #fff;
+    border: 0;
+    align-self: flex-end;
+    
+    &:hover {
+      background-color: #01C7D2;
+    }
+  }
 }
