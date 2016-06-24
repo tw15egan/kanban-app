@@ -47,6 +47,10 @@ body {
       align-items: center;
       justify-content: space-between;
     }
+    
+    &:hover {
+        background-color: lighten(#01C7D2, 55%);
+    }
   }
   
   &__text {
