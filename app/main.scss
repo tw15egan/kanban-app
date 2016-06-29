@@ -7,7 +7,7 @@
 
 body {
   padding: 5%;
-  background-color: #fff;
+  background-color: #90A4AE;
   color: #333;
   font-family: 'Helvetica Neue';
   
@@ -24,7 +24,8 @@ body {
 
 .note {
   width: 100%;
-  background-color: #eeeded;
+  min-height: 500px;
+  background-color: #CFD8DC;
   padding: 1rem 2rem;
 
   &__list {
@@ -32,7 +33,7 @@ body {
   }
   
   &__item {
-    background-color: #fefefe;
+    background-color: #ECEFF1;
     
     &:nth-child(even) {
       background-color: #f7f7f7;
@@ -49,7 +50,13 @@ body {
     }
     
     &:hover {
-        background-color: lighten(#01C7D2, 55%);
+        background-color: lighten(#607D8B, 25%);
+        
+        .note__delete {
+          visibility: visible;
+          opacity: 1;
+          background-color: #EF5350;
+        }
     }
   }
   
@@ -63,24 +70,25 @@ body {
     padding: .5rem 1rem;
     font-size: 1.5rem;
     font-weight: 100;
-    background-color: #01C7D2;
+    background-color: #607D8B;
     color: #fff;
     border: 0;
     flex: 2;
   }
   
   &__delete {
+    visibility: hidden;
+    opacity: 0;
     cursor: pointer;
     padding: .5rem 1rem;
     font-size: 1.5rem;
     font-weight: 100;
-    background-color: #aaa;
     color: #fff;
     border: 0;
     align-self: flex-end;
     
     &:hover {
-      background-color: #01C7D2;
+      
     }
   }
 }
