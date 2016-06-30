@@ -24,9 +24,17 @@ body {
 
 .note {
   width: 100%;
-  min-height: 500px;
+  min-height: 400px;
   background-color: #CFD8DC;
   padding: 1rem 2rem;
+  
+  h1 {
+    margin: 1rem 0 1.5rem;
+    display: inline-block;
+    border-bottom: 2px solid #607D8B; 
+    font-weight: 200;
+    -webkit-font-smoothing: antialiased;
+  }
 
   &__list {
     margin-top: .5rem;
